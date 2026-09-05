@@ -1,21 +1,14 @@
-import { Image, Text, View } from "react-native";
+import { useState } from "react";
+import { Button, Text, View } from "react-native";
 
 export default function Index() {
+  const [jumlah, setJumlah] = useState(0);
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text style={{ color: "#f00" }}>
-        Edit app/index.tsx to edit this screen.
-      </Text>
-      <Image
-        source={{ uri: "https://picsum.photos/200" }}
-        style={{ width: 200, height: 200 }}
-      />
+    <View style={{ display: "flex", gap: 8 }}>
+      <Text>Jumlah: {jumlah}</Text>
+      <Button title="Tambah" onPress={() => setJumlah(jumlah + 5)} />
+      <Button title="Reset" onPress={() => setJumlah(0)} />
     </View>
   );
 }
