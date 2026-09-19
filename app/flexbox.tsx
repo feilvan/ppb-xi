@@ -19,7 +19,28 @@ export default function Flexbox() {
       height: 70,
       width: 70,
     },
+
+    card: {
+      padding: 4,
+      margin: 4,
+      backgroundColor: "#388fff",
+    },
   });
+
+  function Card({
+    nama,
+    kelas,
+  }: {
+    nama: string;
+    kelas: string;
+  }) {
+    return (
+      <View style={style.card}>
+        <Text>Nama: {nama}</Text>
+        <Text>Kelas: {kelas}</Text>
+      </View>
+    );
+  }
 
   return (
     <View>
@@ -40,9 +61,7 @@ export default function Flexbox() {
         <FlatList
           data={siswa}
           renderItem={({ item }) => (
-            <Text style={style.item}>
-              {item.nama} {item.kelas}
-            </Text>
+            <Card nama={item.nama} kelas={item.kelas} />
           )}
         />
       </View>
